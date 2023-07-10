@@ -1,0 +1,28 @@
+jenkins:
+  #enforce login/set admin username/password
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: ${JENKINS_ADMIN_ID}
+          password: ${JENKINS_ADMIN_PASSWORD}
+  #set default permissions for admin/authenticated users
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "USER:Overall/Administer:admin"
+        - "GROUP:Overall/Read:authenticated"
+  #enable agent/controller login
+  remotingSecurity:
+    enabled: true
+
+security:
+  #run builds as user that executed the job
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: triggeringUsersAuthorizationStrategy
+unclassified:
+  #set default URL
+  location:
+    url: http://127.0.0.1:8080/

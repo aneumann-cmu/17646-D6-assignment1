@@ -11,11 +11,27 @@ jenkins:
     globalMatrix:
       permissions:
         - "USER:Overall/Administer:admin"
-        - "GROUP:Overall/Read:authenticated"
+        - "GROUP:Overall/Read:anonymous"
   #enable agent/controller login
   remotingSecurity:
     enabled: true
-
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - home: "/usr/lib/jvm/java-17-openjdk-amd64/"
+      name: "J17"
+  maven:
+    installations:
+    - name: "M3"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.9.3"
 security:
   #run builds as user that executed the job
   queueItemAuthenticator:
@@ -26,3 +42,6 @@ unclassified:
   #set default URL
   location:
     url: http://127.0.0.1:8080/
+
+jobs:
+  - file: /usr/local/seedjob.groovy

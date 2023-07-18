@@ -1,25 +1,9 @@
 version: '3.3'
 
 services:
-  dind:
-      image: docker:dind
-      privileged: true
-      restart: always
-      networks:
-        devnet:
-      ports:
-        - 2376:2376
-      tty: true
-      volumes:
-        - ./devops:/var/devops
-      environment:
-        - DOCKER_TLS_CERTDIR=""
-
-  jenkins:
+    jenkins:
     image: jenkins/jenkins:jdk17
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./devops:/var/jenkins_home/devops
       - ./casc.yaml:/var/jenkins_home/casc.yaml
       - ./plugins.txt:/usr/share/jenkins/ref/plugins.txt
       - ./seedjob.groovy:/usr/local/seedjob.groovy

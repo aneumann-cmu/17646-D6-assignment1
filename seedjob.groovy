@@ -36,19 +36,12 @@ pipelineJob('PetClinicBuild') {
                                         success {
                                             junit '**/target/surefire-reports/TEST-*.xml'
                                             archiveArtifacts 'target/*.jar'
-                                            sh 'cp target/*.jar $HOME/devops'
                                         }
                                     }
                                 }
                                 stage('Deploy') {
                                     steps {
-                                        sh 'docker run -d -p 8084:8084 \
-                                        -v /var/run/docker.sock:/var/run/docker.sock \
-                                        -v ./devops:/$HOME/devops
-                                        --privileged \
-                                        --network devnet \
-                                        openjdk:21-ea-17-slim-buster'
-                                        sh 'java -jar $HOME/devops/*.jar --server.port=8084'
+                                        sh 'no hup java -jar target/*.jar --server.port=8084'
                                     }
                                 }
                             }

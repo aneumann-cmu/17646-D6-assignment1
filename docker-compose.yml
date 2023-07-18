@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-    jenkins:
+  jenkins:
     image: jenkins/jenkins:jdk17
     volumes:
       - ./casc.yaml:/var/jenkins_home/casc.yaml

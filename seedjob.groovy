@@ -17,6 +17,10 @@ pipelineJob('PetClinicBuild') {
                                         git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
                                     }
                                 }
+                                stage('Test') {
+                                    steps {
+                                        // Test code
+                                    }
                                 stage('Build') {
                                     steps {
                                         // Run Maven on a Unix agent.
@@ -30,6 +34,12 @@ pipelineJob('PetClinicBuild') {
                                             junit '**/target/surefire-reports/TEST-*.xml'
                                             archiveArtifacts 'target/*.jar'
                                         }
+                                    }
+                                }
+                                stage('Deployment') {
+                                    steps {
+                                        // Deploy Petclinic Jar
+                                        sh "java -jar target/*.jar"
                                     }
                                 }
                             }

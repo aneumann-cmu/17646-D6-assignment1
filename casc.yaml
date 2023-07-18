@@ -1,20 +1,4 @@
 jenkins:
-  #enforce login/set admin username/password
-  securityRealm:
-    local:
-      allowsSignup: false
-      users:
-        - id: ${JENKINS_ADMIN_ID}
-          password: ${JENKINS_ADMIN_PASSWORD}
-  #set default permissions for admin/authenticated users
-  authorizationStrategy:
-    globalMatrix:
-      permissions:
-        - "USER:Overall/Administer:admin"
-        - "GROUP:Overall/Read:anonymous"
-  #enable agent/controller login
-  remotingSecurity:
-    enabled: true
 tool:
   git:
     installations:
@@ -41,7 +25,7 @@ security:
 unclassified:
   #set default URL
   location:
-    url: http://127.0.0.1:8080/
+    url: jenkins://jenkins:8080/
 
 jobs:
   - file: /usr/local/seedjob.groovy

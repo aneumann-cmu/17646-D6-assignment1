@@ -20,13 +20,14 @@ pipelineJob('PetClinicBuild') {
                                 stage('Test') {
                                     steps {
                                         // Test code
+                                        sh 'echo test'
                                     }
+                                }
                                 stage('Build') {
                                     steps {
                                         // Run Maven on a Unix agent.
-                                        sh "./mvnw -Dmaven.test.failure.ignore=true clean package"
+                                        sh './mvnw -Dmaven.test.failure.ignore=true clean package'
                                     }
-
                                     post {
                                         // If Maven was able to run the tests, even if some of the test
                                         // failed, record the test results and archive the jar file.
@@ -36,10 +37,9 @@ pipelineJob('PetClinicBuild') {
                                         }
                                     }
                                 }
-                                stage('Deployment') {
+                                stage('Deploy') {
                                     steps {
-                                        // Deploy Petclinic Jar
-                                        sh "java -jar target/*.jar"
+                                        sh 'java -jar target/*.jar --server.port=8084 &'
                                     }
                                 }
                             }

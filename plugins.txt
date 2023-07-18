@@ -6,6 +6,8 @@ build-timeout:latest
 cloudbees-folder:latest
 configuration-as-code:latest
 credentials-binding:latest
+docker-commons:latest
+docker-workflow:latest
 email-ext:latest
 git:latest
 github-branch-source

@@ -20,7 +20,9 @@ pipelineJob('PetClinicBuild') {
                                 stage('Test') {
                                     steps {
                                         // Test code
-                                        sh 'echo test'
+                                        withSonarQubeEnv('sonarqube') {
+                                            sh "${tool 'M3'}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic"
+                                        }
                                     }
                                 }
                                 stage('Build') {

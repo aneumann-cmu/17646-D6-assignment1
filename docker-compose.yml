@@ -38,8 +38,7 @@ services:
       - sonar.jdbc.username=sonar
       - sonar.jdbc.password=sonar
       - sonar.jdbc.url=jdbc:postgresql://db:5432/sonarqube
-      
-
+      - SONAR_FORCEAUTHENTICATION=FALSE
   db:
     image: postgres
     networks:

@@ -58,7 +58,7 @@ sudo ./devops-pl.sh
 The Jenkins CI job may be viewed in Jenkins by opening Firefox and going to HTTP://localhost:8080
 
 ## Open and View Sonarqube Analysis ##
-The Sonarqube SAST may be viewed in Sonarqube by opening Firefox and going to HTTP://localhost:9000
+The Sonarqube SAST may be viewed in Sonarqube by opening Firefox and going to HTTP://localhost:9000 and using Username: admin Password: Password to login
 
 ## Open and View PetClinic App ##
-The PetClinic App may be viewed in Sonarqube by opening Firefox and going to HTTP://localhost:8085
+The PetClinic App may be viewed by opening Firefox and going to HTTP://localhost:8085

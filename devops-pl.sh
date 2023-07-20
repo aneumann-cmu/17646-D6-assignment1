@@ -9,8 +9,8 @@ SONARQUBE_ADMIN_PASSWORD="password"
 JENKINS_URL="http://localhost:8080"
 
 # Jenkins API authentication (replace with your Jenkins credentials)
-JENKINS_USERNAME=""
-JENKINS_PASSWORD=""
+JENKINS_USERNAME="admin"
+JENKINS_PASSWORD="password"
 
 # SonarQube instance name
 SONARQUBE_INSTANCE_NAME="sonarqube"
@@ -38,7 +38,8 @@ create_sonarqube_password () {
 create_sonarqube_user_token() {
   SONARQUBE_TOKEN=$(curl -s -u "$SONARQUBE_ADMIN_USERNAME:$SONARQUBE_ADMIN_PASSWORD" -X POST "$SONARQUBE_URL/api/user_tokens/generate" \
     -d "name=JenkinsTokenForSonarQube" \
-    -d "login=admin")
+    -d "login=admin" \
+    -d "type=GLOBAL_ANALYSIS_TOKEN")
   SONARQUBE_TOKEN=$(echo "$SONARQUBE_TOKEN" | grep -o '"token":"[^"]*' | cut -d'"' -f4)
 }
 
@@ -101,7 +102,7 @@ JOB_CONFIG=$(cat << 'EOF'
                             steps {
                                 // Test code
                                 withSonarQubeEnv('sonarqube') {
-                                    sh "\${tool 'M3'}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic -Dsonar.login=\$SONARQUBE_TOKEN"
+                                    sh "${tool 'M3'}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic -Dsonar.login=$SONARQUBE_TOKEN"
                                 }
                             }
                         }
@@ -157,25 +158,23 @@ check_build_status() {
 
   if [ "$build_status" == "SUCCESS" ]; then
     echo "Build succeeded, downloading executables"
-    download_jar_files
+    sleep 10
+    download_jar_file
     echo "Download successful, deploying PetClinic"
-    java -jar *.jar --server.port=8085
-    echo "PetClinic Deployed, access at http://localhost:8085"
+    deploy_petclinic_app
   else
     echo "Build failed!"
   fi
 }
 
 # Function to download .jar files from artifacts
-download_jar_files() {
-  local artifacts=$(curl -s -u "$JENKINS_USERNAME:$API_TOKEN" "$JENKINS_URL/job/$JOB_NAME/lastBuild/api/json" | jq -r '.artifacts[].fileName')
+download_jar_file() {
+  curl "$JENKINS_URL/job/$JOB_NAME/lastSuccessfulBuild/artifact/target/spring-petclinic-3.1.0-SNAPSHOT.jar" -o "spring-petclinic-3.1.0-SNAPSHOT.jar"
+}
 
-  for artifact in $artifacts; do
-    if [[ "$artifact" == *.jar ]]; then
-      curl -O -u "$JENKINS_USERNAME:$API_TOKEN" "$JENKINS_URL/job/$JOB_NAME/lastBuild/artifact/$artifact"
-      echo "File downloaded: $artifact"
-    fi
-  done
+deploy_petclinic_app () {
+    java -jar spring-petclinic-3.1.0-SNAPSHOT.jar --server.port=8085
+    echo "PetClinic Deployed, access at http://localhost:8085"
 }
 
 # Main script execution
@@ -185,6 +184,7 @@ echo "Setting up container environment"
 docker-compose up -d
 echo "Containers deployed, waiting for containers to be ready"
 verify_sonarqube_status
+
 echo "Containers online, setting up Sonarqube/Jenkins credentials"
 create_sonarqube_password
 create_sonarqube_user_token
@@ -194,6 +194,6 @@ echo "Sonarqube/Jenkins credentials configured, creating Jenkins/Sonarqube Petcl
 create_petclinic_project_jk
 create_petclinic_project_sq
 echo "Petclinic project created, starting PetClinicBuild"
-#trigger_jenkins_job
-#echo "PetClinicBuild job running... waiting for job to finish"
-#check_build_status
+trigger_jenkins_job
+echo "PetClinicBuild job running... waiting for job to finish"
+check_build_status

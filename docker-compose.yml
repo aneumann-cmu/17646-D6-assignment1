@@ -1,6 +1,7 @@
 version: '3.3'
 
 services:
+  #Jenkins Container Variables
   jenkins:
     image: jenkins/jenkins:jdk17
     volumes:
@@ -24,7 +25,7 @@ services:
       context: .
       dockerfile: Dockerfile
     
-
+  #Sonarqube Container Variables
   sonarqube:
     image: sonarqube:9.9-community
 
@@ -38,6 +39,8 @@ services:
       - sonar.jdbc.username=sonar
       - sonar.jdbc.password=sonar
       - sonar.jdbc.url=jdbc:postgresql://db:5432/sonarqube
+  
+  #Sonarqube Database Container Variables
   db:
     image: postgres
     networks:

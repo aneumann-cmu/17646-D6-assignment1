@@ -49,7 +49,7 @@ echo \
 sudo apt-get update   
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose docker-compose-plugin jq liberror-perl libslirp0 pigz slirp4netns openjdk-17-jdk  
   
-## Build, Test, and Install PetClinic App##
+## Build, Test, and Install PetClinic App ##
 git clone https://github.com/aneumann-cmu/17646-D6-assignment1.git  
 cd 17646-D6-assignment1  
 sudo ./devops-pl.sh  

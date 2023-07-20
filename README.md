@@ -46,7 +46,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   
 sudo apt-get update 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose docker-compose-plugin jq liberror-perl libslirp0 pigz slirp4netns
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose docker-compose-plugin jq liberror-perl libslirp0 pigz slirp4netns openjdk-17-jdk
 
 ## Install ##
 git clone https://github.com/aneumann-cmu/17646-D6-assignment1.git

@@ -16,7 +16,7 @@ Docker-compose binary: docker-compose, Version: 1.29.2-1
 ca-certificates, Version 20230311ubuntu0.22.04.1  
 curl, Version 7.81.0-1ubuntu1.10  
 containerd.io, Version 1.6.21-1  
-docker-ce, Version 5:24.0.4-1~ubuntu.22.04~jammy  
+docker-ce, Version 5:24.0.4-1\~ubuntu.22.04~jammy  
 docker-ce-cli, Version 5:24.0.4-1~ubuntu.22.04~jammy  
 docker-buildx-plugin, Version 0.11.1-1~ubuntu.22.04~jammy  
 docker-compose, Version: 1.29.2-1  

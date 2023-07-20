@@ -6,7 +6,6 @@ services:
     volumes:
       - ./casc.yaml:/var/jenkins_home/casc.yaml
       - ./plugins.txt:/usr/share/jenkins/ref/plugins.txt
-      - ./seedjob.groovy:/usr/local/seedjob.groovy
     networks:
       - devnet
     ports:
@@ -16,13 +15,15 @@ services:
 
     environment:
       #Set Jenkins Installation Options
-      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false -Dhudson.security.csrf.GlobalCrumbIssuerConfiguration.DISABLE_CSRF_PROTECTION=true
 
       #Set Jenkins Environment Variables
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc.yaml
+      
     build:
       context: .
       dockerfile: Dockerfile
+    
 
   sonarqube:
     image: sonarqube:9.9-community
@@ -37,7 +38,6 @@ services:
       - sonar.jdbc.username=sonar
       - sonar.jdbc.password=sonar
       - sonar.jdbc.url=jdbc:postgresql://db:5432/sonarqube
-      - SONAR_FORCEAUTHENTICATION=FALSE
   db:
     image: postgres
     networks:

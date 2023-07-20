@@ -31,8 +31,8 @@ unclassified:
     installations:
       - name: sonarqube
         serverUrl: http://sonarqube:9000
-        credentialsId: token-sonarqube
-        serverAuthenticationToken: "" 
+        credentialsId:
+        serverAuthenticationToken:
         additionalAnalysisProperties:
         additionalProperties:
         mojoVersion:
@@ -40,6 +40,3 @@ unclassified:
           envVar:
           skipScmCause: false
           skipUpstreamCause: false
-
-jobs:
-  - file: /usr/local/seedjob.groovy

@@ -33,6 +33,7 @@ pigz, Version 2.6-1
 slirp4netns, Version 1.0.1-2  
 
 ## Install Dependencies ##
+sudo apt-get upgrade  
 sudo apt-get update  
 sudo apt-get install ca-certificates curl gnupg  
 

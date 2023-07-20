@@ -28,6 +28,7 @@ gnupg, Version 2.2.27-3ubuntu2.1
 jq, Version 1.6-2.1ubuntu3
 liberror-perl, Version 0.17029-1
 libslirp0, Version 4.6.1-1build1
+openjdk-17-jdk, Version 17.0.7+7~us1-0ubuntu1~22.04.2
 pigz, Version 2.6-1
 slirp4netns, Version 1.0.1-2
 

@@ -30,3 +30,8 @@ liberror-perl, Version 0.17029-1
 libslirp0, Version 4.6.1-1build1
 pigz, Version 2.6-1
 slirp4netns, Version 1.0.1-2
+
+## Install ##
+git clone https://github.com/aneumann-cmu/17646-D6-assignment1.git
+cd 17646-D6-assignment1
+sudo ./devops-pl.sh

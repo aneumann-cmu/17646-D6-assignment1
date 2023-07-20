@@ -32,7 +32,7 @@ openjdk-17-jdk, Version 17.0.7+7\~us1-0ubuntu1\~22.04.2
 pigz, Version 2.6-1  
 slirp4netns, Version 1.0.1-2  
 
-## Install Dependencies ##
+## Setup Ubuntu Environment and Install Dependencies ##
 sudo apt-get upgrade  
 sudo apt-get update  
 sudo apt-get install ca-certificates curl gnupg  

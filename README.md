@@ -35,7 +35,7 @@ slirp4netns, Version 1.0.1-2
 ## Step 1. Setup Ubuntu Environment and Install Dependencies ##
 sudo apt-get upgrade  
 sudo apt-get update  
-sudo apt-get install ca-certificates curl gnupg  
+sudo apt-get install ca-certificates curl git gnupg  
 
 sudo install -m 0755 -d /etc/apt/keyrings  
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg  

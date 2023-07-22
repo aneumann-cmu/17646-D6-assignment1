@@ -57,7 +57,7 @@ Execute the following commands in a terminal window:
 
 unzip 17646-D6-assignment1.zip  
 --OR--  
-alternatively:git clone https://github.com/aneumann-cmu/17646-D6-assignment1.git  
+git clone https://github.com/aneumann-cmu/17646-D6-assignment1.git  
   
 cd 17646-D6-assignment1  
 sudo ./devops-pl.sh  

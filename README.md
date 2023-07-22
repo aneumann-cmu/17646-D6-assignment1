@@ -64,16 +64,22 @@ cd 17646-D6-assignment1
 sudo ./devops-pl.sh  
 
 ## Step 3. Open and View Jenkins Pipeline ##
-The Jenkins CI job may be viewed in Jenkins by opening Firefox and going to HTTP://localhost:8080
+The Jenkins CI job may be viewed in Jenkins by opening Firefox and going to http://localhost:8080
 
 ## Step 4. Open and View Sonarqube Analysis ##
-The Sonarqube SAST may be viewed in Sonarqube by opening Firefox and going to HTTP://localhost:9000 and using Username: admin Password: Password to login
+The Sonarqube SAST may be viewed in Sonarqube by opening Firefox and going to http://localhost:9000 and using Username: admin Password: Password to login
+
+## Step 5. Open and View PetClinic App ##
+The PetClinic App may be viewed by opening Firefox and going to http://localhost:8085  
 
 # Provisioning Scripts & Automated Shell Script
-devops-pl.sh
+devops-pl.sh, docker-compose.yml, Dockerfile, plugins.txt, casc.yml
 
 # Screenshot of Petclinic Welcome Screen
 screenshots/19. PETCLINIC_WELCOME.png
 
-## Step 5. Open and View PetClinic App ##
-The PetClinic App may be viewed by opening Firefox and going to HTTP://localhost:8085
+# Journal  
+The most challenging part of this assignment was setting the application environment variables related to the credentials for login for SonarQube/Jenkins. In the end, I accomplished this using CURL posts directly to the application API and turning off a lot of each application's security. This likely would have been much easier to implement with some sort of token vault, but it would have required much more setup that was outside of the scope of an MVP. 
+
+# Text Capture
+Relevant CLI Screenshots  1. CHANGE_DIRECTORY.png, 2. RUN_SCRIPT.png, 3. CREATING_CONTAINERS.png, 4. SETTING_UP_ENV.png, 9. JAR_DOWNLOAD.png, 10. PETCLINIC_DEPLOYED.png

@@ -1,19 +1,19 @@
-# aneumann_assignment1
+# Tooling  
 
-### Host Operating System Details ###
+## Host Operating System Details ##  
 Operating System: Ubuntu 22.04.2 LTS  
 Chipset: Intel(R) Core(TM) i9-9900K CPU (x86_64)  
 Ubuntu OS Details: Ubuntu 22.04.2 LTS (Jammy), 64-bit x86  
 Installation Type: Normal Installation
   
-### Software Used ###
+## Software Used ##  
 Container Engine: Docker  
 Docker binary: docker-ce, Version 5:24.0.4-1~ubuntu.22.04~jammy  
   
 Container Deployment: Docker Compose  
 Docker-compose binary: docker-compose, Version: 1.29.2-1  
   
-### Dependencies ### 
+## Dependencies ## 
 ca-certificates, Version 20230311ubuntu0.22.04.1  
 curl, Version 7.81.0-1ubuntu1.10  
 containerd.io, Version 1.6.21-1  
@@ -33,6 +33,7 @@ openjdk-17-jdk, Version 17.0.7+7\~us1-0ubuntu1\~22.04.2
 pigz, Version 2.6-1  
 slirp4netns, Version 1.0.1-2  
 
+# Step-by-Step Instructions  
 ## Step 1. Setup Ubuntu Environment and Install Dependencies ##
 Execute the following commands in a terminal window:  
 
@@ -67,6 +68,12 @@ The Jenkins CI job may be viewed in Jenkins by opening Firefox and going to HTTP
 
 ## Step 4. Open and View Sonarqube Analysis ##
 The Sonarqube SAST may be viewed in Sonarqube by opening Firefox and going to HTTP://localhost:9000 and using Username: admin Password: Password to login
+
+# Provisioning Scripts & Automated Shell Script
+devops-pl.sh
+
+# Screenshot of Petclinic Welcome Screen
+screenshots/19. PETCLINIC_WELCOME.png
 
 ## Step 5. Open and View PetClinic App ##
 The PetClinic App may be viewed by opening Firefox and going to HTTP://localhost:8085

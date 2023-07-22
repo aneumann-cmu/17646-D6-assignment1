@@ -4,6 +4,7 @@
 Operating System: Ubuntu 22.04.2 LTS  
 Chipset: Intel(R) Core(TM) i9-9900K CPU (x86_64)  
 Ubuntu OS Details: Ubuntu 22.04.2 LTS (Jammy), 64-bit x86  
+Installation Type: Normal Installation
   
 ### Software Used ###
 Container Engine: Docker  

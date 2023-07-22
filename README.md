@@ -34,7 +34,7 @@ pigz, Version 2.6-1
 slirp4netns, Version 1.0.1-2  
 
 ## Step 1. Setup Ubuntu Environment and Install Dependencies ##
-Execute The Following Commands in a Terminal Window:  
+Execute the following commands in a terminal window:  
 
 sudo apt-get upgrade  
 sudo apt-get update  

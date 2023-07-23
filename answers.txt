@@ -1,0 +1,9 @@
+Q1. How does CI(Jenkins) help DevOps practices?
+CI/Jenkins helps DevOps practices by enabling rapid testing/building of code commited to a git repository. Using Jenkins, developers can commit code to a repository, which 
+through automation, immediately triggers a test and build of the committed code. This allows developers to submit smaller blocks of code and receive rapid feedback. Additionally,
+it allows on their code to be integrated with the most up-to-date codebase submitted by other developers, allowing for the rapid identification of potential compatability issues.
+Using CI, automation can be built into the development process, saving time and reducing the amount of time required to package/deploy software. Through automation, after each commit, 
+the code can be merged and tested, and even deployed to a test/production environment without any human intervention. This rapid/continuous integration/deployment enables a shift left
+for developers and operations and saves countless hours of time in the development/deployment process.
+
+Q2. What are the alternate ways for Jenkins plugins?

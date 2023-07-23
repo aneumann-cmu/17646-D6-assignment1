@@ -7,3 +7,8 @@ the code can be merged and tested, and even deployed to a test/production enviro
 for developers and operations and saves countless hours of time in the development/deployment process.
 
 Q2. What are the alternate ways for Jenkins plugins?
+Without plugins for Jenkins, there would have been multiple steps that would have required either manual effort, or a re-design of the script used to automate the deployment of Jenkins. 
+The first major re-design would have been the initial deployment and configuration of Jenkins that was performed by the Jenkins Container as Code JCASC. Since I deployed Jenkins as a 
+container, the casc.yaml file set up my Jenkins environment's tools, security settings, and environment variables such as ports. I also used the git, BlueOcean, and job workflow Scripts
+which allowed me to quickly pull code from the GitHub repo, create a pipeline job with multiple stages, and visualize the completed job in BlueOcean. Without all of these plugins, to achieve 
+full automation, I would have likely needed to use curl scripts and the Jenkins API, along with some manual interaction with Jenkins to achieve a higher level of automation.
